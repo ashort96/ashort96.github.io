@@ -3,12 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/fall19cs530lecture1/</loc>
-    <priority>0</priority>
+    <loc>/</loc>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>/guides/</loc>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/guides/guides/intro_to_javascript/</loc>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/fall19cs530lecture1/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -61,14 +72,6 @@
   
   <url>
     <loc>/guides/</loc>
-  </url>
-  
-  <url>
-    <loc>/guides/</loc>
-  </url>
-  
-  <url>
-    <loc>/guides/guides/intro_to_javascript/</loc>
   </url>
   
   <url>
