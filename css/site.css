@@ -3,12 +3,9 @@ dt {
     margin-top: 1%;
 }
 
-.language-CPP {
+.highlght {
     font-size: 14px;
-}
-
-.language-none {
-    font-size: 14px;
+    font-family: monospace;
 }
 
 img[src$='#center'] {
