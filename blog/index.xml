@@ -6,17 +6,18 @@
     <description>Recent content in Blogs on Adam Short</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Mon, 25 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Discord.js vs. Discord.NET</title>
-      <link>/blog/discord/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Fixing how Collision Groups are set in CS:S</title>
+      <link>/blog/blog/fixingcollision/</link>
+      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blog/discord/</guid>
-      <description>For what is it worth, I am by no means a &amp;ldquo;professional&amp;rdquo; programmer. I program as a hobby, and most of my code should by no means ever go into production. With that being said, I still very much enjoy it.</description>
+      <guid>/blog/blog/fixingcollision/</guid>
+      <description>Counter-Strike: Source (CS:S) was released November 1, 2004, over 15 years ago. Since its release, it did not take long before people were already pushing the game to its limits with modifications using SourceMod. In pushing the limit, though, mistakes were made and things got a bit messy. One of the biggest issues (at least that I ran into) was the Collision Groups going to hell once you changed the group for an entity (usually a client) known as the &amp;ldquo;Physics Mayhem bug&amp;rdquo;.</description>
     </item>
     
   </channel>

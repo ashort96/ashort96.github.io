@@ -4,7 +4,17 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
+    <lastmod>2020-05-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/</loc>
+    <lastmod>2020-05-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/blog/fixingcollision/</loc>
+    <lastmod>2020-05-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -18,64 +28,11 @@
   </url>
   
   <url>
-    <loc>/fall19cs530lecture1/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/blog/</loc>
-  </url>
-  
-  <url>
     <loc>/categories/</loc>
   </url>
   
   <url>
-    <loc>/notes/</loc>
-  </url>
-  
-  <url>
-    <loc>/teaching/fall18cs102/</loc>
-  </url>
-  
-  <url>
-    <loc>/teaching/fall18cs102/lab1/</loc>
-  </url>
-  
-  <url>
-    <loc>/ssh_guide/</loc>
-  </url>
-  
-  <url>
-    <loc>/teaching/fall19cs340/</loc>
-  </url>
-  
-  <url>
-    <loc>/teaching/spring19cs361/</loc>
-  </url>
-  
-  <url>
-    <loc>/notes/cs530/</loc>
-  </url>
-  
-  <url>
-    <loc>/notes/cs530/lecture5/</loc>
-  </url>
-  
-  <url>
-    <loc>/blog/discord/</loc>
-  </url>
-  
-  <url>
-    <loc>/teaching/fall19cs340/git/</loc>
-  </url>
-  
-  <url>
     <loc>/guides/</loc>
-  </url>
-  
-  <url>
-    <loc>/teaching/fall19cs340/npm/</loc>
   </url>
   
   <url>
@@ -88,10 +45,6 @@
   
   <url>
     <loc>/tags/</loc>
-  </url>
-  
-  <url>
-    <loc>/teaching/</loc>
   </url>
   
 </urlset>

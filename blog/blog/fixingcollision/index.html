@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <meta name="author" content="Adam Short">
+    
+    
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Fixing how Collision Groups are set in CS:S"/>
+<meta name="twitter:description" content="Counter-Strike: Source (CS:S) was released November 1, 2004, over 15 years ago. Since its release, it did not take long before people were already pushing the game to its limits with modifications using SourceMod. In pushing the limit, though, mistakes were made and things got a bit messy. One of the biggest issues (at least that I ran into) was the Collision Groups going to hell once you changed the group for an entity (usually a client) known as the &ldquo;Physics Mayhem bug&rdquo;."/>
+
+    <meta property="og:title" content="Fixing how Collision Groups are set in CS:S" />
+<meta property="og:description" content="Counter-Strike: Source (CS:S) was released November 1, 2004, over 15 years ago. Since its release, it did not take long before people were already pushing the game to its limits with modifications using SourceMod. In pushing the limit, though, mistakes were made and things got a bit messy. One of the biggest issues (at least that I ran into) was the Collision Groups going to hell once you changed the group for an entity (usually a client) known as the &ldquo;Physics Mayhem bug&rdquo;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/blog/fixingcollision/" />
+<meta property="article:published_time" content="2020-05-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-25T00:00:00+00:00" />
+
+
+    
+      <base href="/blog/blog/fixingcollision/">
+    
+    <title>
+  Fixing how Collision Groups are set in CS:S · Adam Short
+</title>
+
+    
+      <link rel="canonical" href="/blog/blog/fixingcollision/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/site.css">
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.67c558d5cd23d0670f9bdc9398c689abf19d54015de4425d591a3c13ad8651db.css" integrity="sha256-Z8VY1c0j0GcPm9yTmMaJq/GdVAFd5EJdWRo8E62GUds=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-inverted.min.b275a7d098cfe39135a5644e9c6d811e77fc4bdeac01e8e339c7d767146340a8.css" integrity="sha256-snWn0JjP45E1pWROnG2BHnf8S96sAejjOcfXZxRjQKg=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.68.3" />
+  </head>
+
+  <body class=" inverted">
+    <main class="wrapper">
+      <head>
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-146123302-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</head>
+
+<nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Adam Short
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/blog">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/publications">Publications</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Fixing how Collision Groups are set in CS:S</h1>
+    </header>
+
+    <p>Counter-Strike: Source (CS:S) was released November 1, 2004, over 15 years ago.
+Since its release, it did not take long before people were already pushing the game to its limits with modifications using <a href="https://sourcemod.net">SourceMod</a>.
+In pushing the limit, though, mistakes were made and things got a bit messy.
+One of the biggest issues (at least that I ran into) was the Collision Groups going to hell once you changed the group for an entity (usually a client) known as the &ldquo;Physics Mayhem bug&rdquo;.
+The problem was acknowledged as early as 2009, as seen in <a href="https://forums.alliedmods.net/showthread.php?t=99819">this blog post</a>.
+Since then, there had been no fix released and it was chalked up as a &ldquo;Valve&rdquo; problem.
+This was the &ldquo;normal&rdquo; way of changing a client&rsquo;s group so they no longer collided with other entities:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CPP" data-lang="CPP">SetEntProp(client, Prop_Data, <span style="color:#e6db74">&#34;m_CollisionGroup&#34;</span>, COLLISION_GROUP_DEBRIS_TRIGGER, <span style="color:#ae81ff">4</span>);
+</code></pre></div>
+<p>What this would do, at least from the best I can tell, was directly change the member variable associated with the CBaseEntity for that client.
+While this seems somewhat alright (disregarding that we&rsquo;re changing a member variable in memory), this would often lead to all Collision Groups for entities being messed up.
+Guns would fall through maps, some map props would disappear, etc.
+It was not fun, and a server that often toggled Collision Groups had this problem on average 2.6 times a day over the span of 71 days.
+The only way to fix this was to restart the server, which would often result in only half the player base coming back.</p>
+<p>Some of the people that read this might wonder why I, or anyone, would even care about this problem.
+The game is over 15 years old, and it has an active playerbase of &lt; 10,000 unique players a month.
+It is a dying, old game, but I still enjoy playing it (or did, until I finally got burnt out recently).</p>
+<p>Recently, a <a href="https://github.com/destoer">friend</a> found this set of methods from <a href="https://github.com/ValveSoftware/source-sdk-2013/blob/master/mp/src/game/shared/baseentity_shared.cpp#L2493">here</a>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CPP" data-lang="CPP"><span style="color:#66d9ef">void</span> CBaseEntity<span style="color:#f92672">::</span>SetCollisionGroup( <span style="color:#66d9ef">int</span> collisionGroup )
+{
+	<span style="color:#66d9ef">if</span> ( (<span style="color:#66d9ef">int</span>)m_CollisionGroup <span style="color:#f92672">!=</span> collisionGroup )
+	{
+		m_CollisionGroup <span style="color:#f92672">=</span> collisionGroup;
+		CollisionRulesChanged();
+	}
+}
+
+<span style="color:#66d9ef">void</span> CBaseEntity<span style="color:#f92672">::</span>CollisionRulesChanged()
+{
+	<span style="color:#75715e">// ivp maintains state based on recent return values from the collision filter, so anything
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// that can change the state that a collision filter will return (like m_Solid) needs to call RecheckCollisionFilter.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> ( VPhysicsGetObject() )
+	{
+		<span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">PhysIsInCallback</span>();
+		<span style="color:#66d9ef">if</span> ( PhysIsInCallback() )
+		{
+			Warning(<span style="color:#e6db74">&#34;Changing collision rules within a callback is likely to cause crashes!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+			Assert(<span style="color:#ae81ff">0</span>);
+		}
+		IPhysicsObject <span style="color:#f92672">*</span>pList[VPHYSICS_MAX_OBJECT_LIST_COUNT];
+		<span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> VPhysicsGetObjectList( pList, ARRAYSIZE(pList) );
+		<span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> count; i<span style="color:#f92672">++</span> )
+		{
+			<span style="color:#66d9ef">if</span> ( pList[i] <span style="color:#f92672">!=</span> NULL ) <span style="color:#75715e">//this really shouldn&#39;t happen, but it does &gt;_&lt;
+</span><span style="color:#75715e"></span>				pList[i]<span style="color:#f92672">-&gt;</span>RecheckCollisionFilter();
+		}
+	}
+}
+</code></pre></div>
+<p>This looks pretty promising; there is a method specifically used to set the collision groups, as well as another method that seems to clean everything up afterwards.
+Maybe this would fix the problem?</p>
+<p>The problem that we immediately ran into was that the <code>SetCollisionGroup</code> method was not easy to find at all.
+There are 20,440 functions and methods to look for, and there was nothing immediately noticeable about the source code that would help lead us to finding this method.
+Fortunately, though, a method that <code>SetCollisionGroup</code> calls has a string that is easily searchable.</p>
+<p>Behold, the <code>CollisionRulesChanged</code> method (screenshot from IDA):</p>
+<p><img src="/images/collisiongroups_0.png#center" alt="CollisionRulesChanged method"></p>
+<p>For Windows, we get the function signature of:</p>
+<pre><code class="language-none" data-lang="none">\x55\x8b\xec\xb8\x00\x10\x00\x00\xe8****\x56\x8b\xf1\x83\xbe\xe4\x01\x00\x00\x00\x74\x4d</code></pre>
+<p>Following <a href="https://wiki.alliedmods.net/Signature_Scanning">this</a>, we were able to call <code>CollisionRulesChanged</code> from within SourcePawn, a scripting language used for SourceMod.
+We originally ran with only having this and called it every time after we manually changed the Collision Group, and it worked.
+This, however, was not enough.
+We wanted to call the <code>SetCollisionGroup</code> method since it already did exactly what we wanted it to do.
+The problem was, we still could not pinpoint the method <code>SetCollisionGroup</code>.</p>
+<p>I ended up finding a function that calls <code>SetCollisionGroup</code> with the same technique as earlier: looking at strings unique to the method.
+This ended up allowing me to find <code>VPhysicsUpdate</code>.
+I now had <code>VPhysicsUpdate</code> that called <code>SetCollisionGroup</code> that called <code>CollisionRulesChanged</code>, and all I had to do was find the missing middle piece, which was now trivial.</p>
+<p>The <code>SetCollisionGroup</code> method (screenshot from IDA):</p>
+<p><img src="/images/collisiongroups_1.png#center" alt="SetCollisionGroup Method"></p>
+<p>For Windows, we get the function signature of:</p>
+<pre><code class="language-none" data-lang="none">\x55\x8b\xec\x53\x8b\x5d\x08\x56\x57\x8b\xf9\x39\x9f\xe0\x01\x00\x00\x74\x4f\x8b</code></pre>
+<p>I wrote a quick plugin (meant to be used as more of a library) and threw it on my <a href="https://github.com/ashort96/SetCollisionGroup">GitHub</a>.
+If you install this plugin on your CS:S server, all you need to do to <em>properly</em> change physics so players do not collide (also known as noblock) is:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CPP" data-lang="CPP"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;SetCollisionGroup&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+SetEntityCollisionGroup(client, COLLISION_GROUP_DEBRIS_TRIGGER);
+</code></pre></div>
+<p>If you want to re-enable block so players collide once again:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CPP" data-lang="CPP"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;SetCollisionGroup&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+SetEntityCollisionGroup(client, COLLISION_GROUP_PLAYER);
+</code></pre></div>
+<p>Simple, easy, and doesn&rsquo;t cause the bug to happen.</p>
+<p>Since having transitioned to using this method of changing Collision Groups about a week ago, the &ldquo;Physics Mayhem&rdquo; bug has not happened once which means the server did not have to be restarted around 18 times.
+Turns out, the problem wasn&rsquo;t really due to Valve&rsquo;s code (arguably); it was that instead of trying to properly change the Collision Groups, someone suggested a poor, easy way of doing it that results in over a decade of a single bug ruining gameplay for people who wanted to change Collision Groups somewhat regularly.
+The original solution was marketed as the <strong>only</strong> solution, but here I am 10+ years later showing the <strong>right</strong> solution which took a couple of dedicated hours to find.</p>
+<p>If this bug lives in CS:GO, TF2, or any other games supported by SourceMod, please feel free to submit a PR on the repository and I will accept it pending verification.</p>
+<p>Time to figure out how to fix the spray exploit where you can completely crash client games, the voice exploit which causes a buffer overflow, and countless other exploits that are popping up every now and then.</p>
+<h2 id="credits">Credits</h2>
+<ul>
+<li><a href="https://github.com/destoer">destoer</a></li>
+<li><a href="https://bugs.alliedmods.net/show_bug.cgi?id=6348">https://bugs.alliedmods.net/show_bug.cgi?id=6348</a></li>
+<li><a href="https://web.archive.org/web/20190406220848/https://forum.facepunch.com/gmoddev/likl/Crazy-Physics-cause-found/1/">https://web.archive.org/web/20190406220848/https://forum.facepunch.com/gmoddev/likl/Crazy-Physics-cause-found/1/</a></li>
+<li><a href="https://github.com/VSES/SourceEngine2007">https://github.com/VSES/SourceEngine2007</a></li>
+</ul>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-146123302-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

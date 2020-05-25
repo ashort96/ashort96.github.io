@@ -2,3 +2,16 @@ dt {
     margin-inline-start: 20px;
     margin-top: 1%;
 }
+
+.language-CPP {
+    font-size: 14px;
+}
+
+.language-none {
+    font-size: 14px;
+}
+
+img[src$='#center'] {
+    display: block;
+    margin: 0.7rem auto;
+}
