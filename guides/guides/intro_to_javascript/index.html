@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <meta name="author" content="Adam Short">
+    
+    
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Introduction to JavaScript"/>
+<meta name="twitter:description" content="Last updated August 21, 2019 @ 09:33
+Quick Links  About JavaScript Hello World Assigning Variables Comparison Interpolated Strings Arrays Classes Objects Exceptions and Error Handling Var vs. Let Final Notes  About JavaScript JavaScript is weakly (loosely) typed language and is essential for developing web applications. It allows the sites to be interactive and not static like this one. JavaScript is &lsquo;object-based&rsquo;, although there are 7 primitives (variable types that are not objects)."/>
+
+    <meta property="og:title" content="Introduction to JavaScript" />
+<meta property="og:description" content="Last updated August 21, 2019 @ 09:33
+Quick Links  About JavaScript Hello World Assigning Variables Comparison Interpolated Strings Arrays Classes Objects Exceptions and Error Handling Var vs. Let Final Notes  About JavaScript JavaScript is weakly (loosely) typed language and is essential for developing web applications. It allows the sites to be interactive and not static like this one. JavaScript is &lsquo;object-based&rsquo;, although there are 7 primitives (variable types that are not objects)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/guides/guides/intro_to_javascript/" />
+
+
+
+    
+      <base href="/guides/guides/intro_to_javascript/">
+    
+    <title>
+  Introduction to JavaScript · Adam Short
+</title>
+
+    
+      <link rel="canonical" href="/guides/guides/intro_to_javascript/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/site.css">
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.67c558d5cd23d0670f9bdc9398c689abf19d54015de4425d591a3c13ad8651db.css" integrity="sha256-Z8VY1c0j0GcPm9yTmMaJq/GdVAFd5EJdWRo8E62GUds=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-inverted.min.b275a7d098cfe39135a5644e9c6d811e77fc4bdeac01e8e339c7d767146340a8.css" integrity="sha256-snWn0JjP45E1pWROnG2BHnf8S96sAejjOcfXZxRjQKg=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.68.3" />
+  </head>
+
+  <body class=" inverted">
+    <main class="wrapper">
+      <head>
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-146123302-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</head>
+
+<nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Adam Short
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/teaching">Teaching</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/notes">Notes</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/publications">Publications</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/cv.pdf">CV</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Introduction to JavaScript</h1>
+    </header>
+
+    <p>Last updated August 21, 2019 @ 09:33</p>
+<h1 id="quick-links">Quick Links</h1>
+<ul>
+<li><a href="#about-javascript">About JavaScript</a></li>
+<li><a href="#hello-world">Hello World</a></li>
+<li><a href="#assigning-variables">Assigning Variables</a></li>
+<li><a href="#comparison">Comparison</a></li>
+<li><a href="#interpolated-strings">Interpolated Strings</a></li>
+<li><a href="#arrays">Arrays</a></li>
+<li><a href="#classes">Classes</a></li>
+<li><a href="#objects">Objects</a></li>
+<li><a href="#exceptions-and-error-handling">Exceptions and Error Handling</a></li>
+<li><a href="#var-vs-let">Var vs. Let</a></li>
+<li><a href="#final-notes">Final Notes</a></li>
+</ul>
+<h1 id="about-javascript">About JavaScript</h1>
+<p>JavaScript is weakly (loosely) typed language and is essential for developing web applications. It allows the sites to be interactive and not static like this one. JavaScript is &lsquo;object-based&rsquo;, although there are 7 primitives (variable types that are not objects). These primitives are <code>string</code>, <code>number</code>, <code>bigint</code>, <code>boolean</code>, <code>null</code>, <code>undefined</code>, and <code>symbol</code>. With the exception of <code>null</code> and <code>undefined</code>, all other primitives have an object equivalent that wrap around the primitive. If the wrapper needs to be applied, JavaScript will actually do this for you. Note that primitives are immutable, so using one of the wrapper methods for a primitive will return a new instance of the primitive, but it will not modify it.</p>
+<p>In addition to these 7 primitives, JavaScript also has constants. Constants cannot be reset, but constants can change their instantiation.</p>
+<p>JavaScript was originally only for client-side changes and making websites dynamic, but it is used for much more now. With things like Node.js and Electron, full desktop applications can be made using JavaScript.</p>
+<p>In JavaScript, you don&rsquo;t <em>need</em> to put semicolons at the end of lines / statements, but it makes your code a lot easier to read if you do, so I recommend it. Also, issues can come up if you don&rsquo;t use semicolons because JavaScript has to guess where they go. I recommending reading <a href="http://inimino.org/~inimino/blog/javascript_semicolons">this blog post</a> for a pretty good explanation.</p>
+<p>JavaScript is also an asynchronous programming language. This can be especially hard to wrap your head around if you have never dealt it before. JavaScript now follows the <a href="https://en.wikipedia.org/wiki/Async/await">async/await</a> syntax, similar to Python and C#. It also uses something called Promises, but I will go into more depth with that later; gotta walk before you can run. You will more than likely have issues this semester where you will need to know how handle JavaScript being asynchronous.</p>
+<h1 id="hello-world">Hello World</h1>
+<p>Printing to console in JavaScript is extremely easy, and if you have ever coded in C# or Java before, it will look familiar. For those of you who haven&rsquo;t, it might look a little weird:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello World&#34;</span>);
+</code></pre></div>
+<p>The console itself is an object. There are several methods available to the console that you can use. The most popular ones you will use are <code>clear()</code>, <code>error()</code>, and <code>log()</code>. <code>console.log(&quot;&quot;)</code> will print to stdout, and <code>console.error(&quot;&quot;)</code> will write to stderr (if you are running JS in a terminal).</p>
+<p>Printing to the console in web applications will only be useful if you are actually looking at the console. You can do this by using the inspect tool in Chrome and clicking on the &lsquo;console&rsquo; tab.</p>
+<p>For more console related commands, check <a href="https://www.w3schools.com/jsref/obj_console.asp">here</a>.</p>
+<h1 id="assigning-variables">Assigning Variables</h1>
+<p>JavaScript is dynamically-typed like Python, which means you do not have to specify the type like you are used to. In C++ if you wanted to create a variable with a value of &ldquo;hello&rdquo;, you would have to do something similar to this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#f92672">::</span>string a <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello&#34;</span>;
+</code></pre></div>
+<p>In JavaScript, this is how you would assign it:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello&#34;</span>;
+</code></pre></div></p>
+<p>The variable <code>a</code> is of type <code>string</code>, but you did not have to specify that. Similarly, if you used the same variable <code>a</code> and assigned it to a value of <code>5</code>, its type would now be <code>number</code>. This can be confusing, especially when you have a member variable of a class and are expecting it to be one type and it returns another. <a href="https://www.typescriptlang.org/">TypeScript</a> is a typed version of JavaScript, and it solves this issue. Although it compiles down to JavaScript, I prefer using it over JavaScript.</p>
+<h1 id="comparison">Comparison</h1>
+<p>Most comparison operators are the same, but there are a few differences in JavaScript from C++.</p>
+<ul>
+<li><code>==</code> - equals, must match value
+<ul>
+<li>5 == &ldquo;5&rdquo; (true)</li>
+</ul>
+</li>
+<li><code>===</code> - equals, must match value AND type
+<ul>
+<li>5 === &ldquo;5&rdquo; (false)</li>
+</ul>
+</li>
+<li><code>!=</code> - not equals, must not match value
+<ul>
+<li>5 != &ldquo;5&rdquo; (false)</li>
+</ul>
+</li>
+<li><code>!==</code> - not equals, must not match value AND type
+<ul>
+<li>5 !== &ldquo;5&rdquo; (true)</li>
+</ul>
+</li>
+</ul>
+<p>I recommend using <code>===</code> and <code>!==</code>. If you don&rsquo;t care about the type, you are probably doing something wrong.</p>
+<h1 id="interpolated-strings">Interpolated Strings</h1>
+<p><strong>Interpolated stings</strong> - a string literal that might contain interpolation expressions</p>
+<p>This is something easier to explain with code other than words:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">42</span>;
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`i = </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">i</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;i = ${i}&#34;</span>);
+</code></pre></div>
+<p>The above will print out:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">i = 42
+i = ${i}</code></pre></div>
+<p>Instead of using double or single quotes, you must use &lsquo;back-quotes&rsquo; (the key next to one (below the tilde ~) `).</p>
+<h1 id="arrays">Arrays</h1>
+<p>Arrays in JavaScript are more so like vectors in C++ than they are arrays. For starters, arrays do not have a type to them, meaning you can have numbers, strings, objects, and whatever else you want in the same array. Take a look at this example with arrays:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;this&#34;</span>, <span style="color:#e6db74">&#34;is&#34;</span>, <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;array&#34;</span>];
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>[<span style="color:#ae81ff">1</span>]);
+
+<span style="color:#75715e">// Let&#39;s add something to the array
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#34;something&#34;</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>);
+
+<span style="color:#75715e">// Now let&#39;s take it away
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">pop</span>();
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">i</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>);
+
+<span style="color:#75715e">// Print off the number of elements in the array
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">length</span>)
+</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">is
+[&#34;this&#34;, &#34;is&#34;, 1, &#34;array&#34;, &#34;something]
+something
+[&#34;this&#34;, &#34;is&#34;, 1, &#34;array&#34;]
+4</code></pre></div>
+<p>There are a lot more features to arrays that you can find <a href="https://www.w3schools.com/jsref/jsref_obj_array.asp">here</a>, but I don&rsquo;t want to cover something that has plenty of documentation and is more of a case-by-case basis. I doubt all of you will need every thing on that list.</p>
+<h1 id="classes">Classes</h1>
+<p>Classes are probably going to be one of the most useful things for you. You can create a class doing something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Car</span> {
+    <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">make</span>, <span style="color:#a6e22e">model</span>, <span style="color:#a6e22e">year</span>, <span style="color:#a6e22e">color</span>) {
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">make</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">make</span>;
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">model</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">model</span>;
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">year</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">year</span>;
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">color</span>;
+    }
+}
+</code></pre></div>
+<p>You&rsquo;ll notice that I have <code>export</code> in front of the class. Typically, you should be making a class in its own file. This keeps everything separated and easier to deal with, especially working with a team. The <code>export</code> allows the import statement that you see down below, where I am creating an instance of a Car in another file:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">Car</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;path_to_car&#34;</span>;
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Car</span>(<span style="color:#e6db74">&#34;BMW&#34;</span>, <span style="color:#e6db74">&#34;M5&#34;</span>, <span style="color:#ae81ff">2000</span>, <span style="color:#e6db74">&#34;Carbon Black&#34;</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>);
+</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">Car {
+    make: &#34;BMW&#34;,
+    model: &#34;M5&#34;,
+    year: 2000,
+    color: &#34;Carbon Black&#34;
+}</code></pre></div>
+<p>You can additionally add several other things to the class, such as getters and setters. Classes are very similar to what you have used them for in C++ in previous courses, although you will get a lot of use of them out using JavaScript, especially when you are dealing with data from a database.</p>
+<h1 id="objects">Objects</h1>
+<p>Objects are similar to dictionaries in Python or maps in C++. Take a look at this example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;JavaScript&#34;</span>,
+    <span style="color:#a6e22e">b</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;is&#34;</span>,
+    <span style="color:#a6e22e">c</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>,
+    <span style="color:#a6e22e">d</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cool&#34;</span>
+
+}
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">obj</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">obj</span>[<span style="color:#e6db74">&#34;b&#34;</span>]);
+
+<span style="color:#a6e22e">obj</span>[<span style="color:#e6db74">&#34;b&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;CS340&#34;</span>;
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">obj</span>[<span style="color:#e6db74">&#34;b&#34;</span>]);
+</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">{a: &#34;JavaScript&#34;, b: &#34;is&#34;, c: 2, d: &#34;cool&#34;}
+is
+CS340</code></pre></div>
+<p>You can also add functions inside of Objects, but I&rsquo;ll let you figure that one out on your own.</p>
+<h1 id="exceptions-and-error-handling">Exceptions and Error Handling</h1>
+<p>You have probably never been taught this, but C++ has something called a &ldquo;try-block&rdquo;. Essentially, a section of code will &ldquo;try&rdquo; to run. If any exceptions are caught, it will go to the &ldquo;catch&rdquo; section. JS has the same feature:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">try</span> {
+    <span style="color:#a6e22e">functionIDidNotWrite</span>();
+}
+<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">e</span>) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">e</span>);
+}
+<span style="color:#66d9ef">finally</span> {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;This will run no matter what&#34;</span>);
+}
+</code></pre></div>
+<p>The code in the <code>try</code> section will try to run; if the function throws an Exception, it will run the section of code in the <code>catch</code> block of code. The <code>finally</code> section will run whether an exception is thrown or caught.</p>
+<p>You should get very comfortable with try-blocks, as almost every programming language has them. Up to this point, most of the &ldquo;error-handling&rdquo; you have done has probably been with cout or printf. Using try-blocks will be very beneficial to you as you continue to program.</p>
+<h1 id="var-vs-let">Var vs. Let</h1>
+<p>In JavaScript, you can either use <code>var</code> or <code>let</code> when declaring a variable; there is a difference to the two, and I will try explaining this in the lecture. I typically use <code>let</code> over <code>var</code>, but I am probably doing it the wrong way. <a href="https://www.w3schools.com/js/js_let.asp">This</a> gives a pretty good &ldquo;when you should use what&rdquo; set of examples, and <a href="https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var">this stack overflow post</a> gives a good reasoning as well.</p>
+<h1 id="final-notes">Final Notes</h1>
+<p>This is not a full &ldquo;learn JavaScript in a short tutorial&rdquo;. These notes are here more so for a refresher if you need them later on, and a guide for me to follow when doing this lecture with you. I recommend looking at <a href="https://www.w3schools.com/jsref/">w3schools</a> for a lot more in-detail explanations of what is here if you need help. Additionally, using Google will get you a long way.</p>
+<p>JavaScript, like any other programming languages, has its quirks you will have to get used to. I will try to help you out the best I can throughout the semester, but Google and StackOverflow will probably help you more than I will.</p>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-146123302-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

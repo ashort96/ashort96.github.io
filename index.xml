@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Adam Short</title>
+    <link>/</link>
+    <description>Recent content on Adam Short</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/fall19cs530lecture1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fall19cs530lecture1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Classes</title>
+      <link>/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notes/</guid>
+      <description>These are all the classes I have taken or am taking in graduate school with any notes attached.
+ Fall 2019
+ CS530 - Computer Systems Organization (Dr. Peterson) CS594 - Human Factors in Computer Security (Dr. Ruoti)   Summer 2019
+ CS593 - Independent Study (Dr. Henley)  </description>
+    </item>
+    
+    <item>
+      <title>CS102 - Introduction to Computer Science (Fall 2018)</title>
+      <link>/teaching/fall18cs102/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/teaching/fall18cs102/</guid>
+      <description>Teachers: Dr. Stephen Marz &amp;amp; Joshua Dunn Course Description: Problem solving and algorithm development. Organization and characteristics of modern digital computers with emphasis on software engineering, building abstractions with procedures and data, and programming in a modern computer language. Includes Level 1 design projects, which require laboratory work.
+Office Hours:  Monday (1400 - 1545) Friday (1500 - 1700) By appointment  Lab Sections: All lab sections meet in MK418 (Tesla Lab).</description>
+    </item>
+    
+    <item>
+      <title>CS102 - Introduction to Computer Science (Fall 2018) - Lab 1</title>
+      <link>/teaching/fall18cs102/lab1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/teaching/fall18cs102/lab1/</guid>
+      <description>Back to CS102 - Introduction to Computer Science (Fall 2018)
+This was the altered first lab. Originally, there was slightly more detail to the lab (both cout and cin were used, but it proved very difficult to have this one added step into an already short fifty minute lab section). The main points of this lab section were to get students familiar with using a terminal, vim, Canvas. Additionally, all students should be able to connect to one of the Tesla machines from their laptop by the end of this section.</description>
+    </item>
+    
+    <item>
+      <title>CS102 - Introduction to Computer Science (Fall 2018) - SSH Guide</title>
+      <link>/ssh_guide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/ssh_guide/</guid>
+      <description>Back to CS102 - Introduction to Computer Science (Fall 2018)
+There are two sections here; one for MacOS and another for Windows. If you are using Linux, I assume you don&amp;rsquo;t really need these instructions, but the MacOS section will work just fine for you.
+MacOS Lucky for you, MacOS comes with a terminal. Click on your Launchpad, then type &amp;lsquo;terminal&amp;rsquo;. You should see an application with a console on it - you&amp;rsquo;ll want to click that.</description>
+    </item>
+    
+    <item>
+      <title>CS340 - Software Engineering (Fall 2019)</title>
+      <link>/teaching/fall19cs340/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/teaching/fall19cs340/</guid>
+      <description>Last updated August 21, 2019 @ 23:11
+Teacher: Dr. Austin Henley Course Description: Introduction to software processes that can be used on large projects to help design, manage, maintain, and test software.
+Office Hours (MK206): I will not be having &amp;ldquo;set&amp;rdquo; office hours this semester. The way things are looking, I will be in my office most Tuesdays and Thursdays from 1100-1400. If you want to make an actual appointment, email (ashort11@vols.</description>
+    </item>
+    
+    <item>
+      <title>CS361 - Operating Systems (Spring 2019)</title>
+      <link>/teaching/spring19cs361/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/teaching/spring19cs361/</guid>
+      <description>Teacher: Dr. Stephen Marz Course Description: Threads, operating system structure, process management, scheduling, synchronization, deadlock, memory management, virtual memory and demand paging, file system management and implementation, mass storage structure, protection, security, and distributed systems
+Office Hours:  Monday (1400 - 1500) Tuesday (1400 - 1500) By appointment  Labs:  Lab 1 - Test/Set/Clear/Mask Lab 2 - UART Driver Lab 3 - Scheduler Lab 4 - MMU Lab 5 - FUSE Filesystem Lab X - VirtIO  </description>
+    </item>
+    
+    <item>
+      <title>CS530</title>
+      <link>/notes/cs530/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notes/cs530/</guid>
+      <description> Lecture5  </description>
+    </item>
+    
+    <item>
+      <title>CS530 - Lecture 5</title>
+      <link>/notes/cs530/lecture5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notes/cs530/lecture5/</guid>
+      <description>Back
+Introduction  Programmers want unlimited amounts of memory with low latency Fast memory technology is more expensive per bit than slower memory Solution: organize memory system into a hierarchy  Entire addressable memory space available in largest, slowest memory Incrementally smaller and faster memories, each containing a subset of the memory below it, proceed in steps up toward the processor   Temporal and spatial locality insures that nearly all references can be found in smaller memories  Gives the allusion of a large, fast memory being presented to the processor    Memory Hierarchy Levels  Block (aka line): unit of copying  May be multiple words   If accessed data is present in upper level  Hit: access satisfied by upper level  Hit ratio: hits/accesses     If accessed data is absent  Miss: block copied from lower level  Time taken: miss penalty Miss ratio: misses/accesses = 1 – hit ratio   Then accessed data supplied from upper level    Memory Hierarchy Design  Memory hierarchy design becomes more crucial with recent multi-core processors:  Aggregate peak bandwidth grows with # cores:  Intel Core i7 can generate two references per core per clock Four cores and 3.</description>
+    </item>
+    
+    <item>
+      <title>Discord.js vs. Discord.NET</title>
+      <link>/blog/discord/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/discord/</guid>
+      <description>For what is it worth, I am by no means a &amp;ldquo;professional&amp;rdquo; programmer. I program as a hobby, and most of my code should by no means ever go into production. With that being said, I still very much enjoy it.</description>
+    </item>
+    
+    <item>
+      <title>Git &amp; GitHub</title>
+      <link>/teaching/fall19cs340/git/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/teaching/fall19cs340/git/</guid>
+      <description>Git is an unavoidable tool that you will need to get used to, so there is no time like the present (not to mention, it is required that you use it for the course). Git is a version control system (VCS) used for tracking changes in source code. If you have never used GitHub, Bitbucket, or GitLab before, then this will be pretty useful to read, although it will not cover everything.</description>
+    </item>
+    
+    <item>
+      <title>Guides</title>
+      <link>/guides/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guides/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Introduction to JavaScript</title>
+      <link>/guides/guides/intro_to_javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guides/guides/intro_to_javascript/</guid>
+      <description>Last updated August 21, 2019 @ 09:33
+Quick Links  About JavaScript Hello World Assigning Variables Comparison Interpolated Strings Arrays Classes Objects Exceptions and Error Handling Var vs. Let Final Notes  About JavaScript JavaScript is weakly (loosely) typed language and is essential for developing web applications. It allows the sites to be interactive and not static like this one. JavaScript is &amp;lsquo;object-based&amp;rsquo;, although there are 7 primitives (variable types that are not objects).</description>
+    </item>
+    
+    <item>
+      <title>Node.js, NPM, and Electron</title>
+      <link>/teaching/fall19cs340/npm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/teaching/fall19cs340/npm/</guid>
+      <description>Last updated August 20, 2019 @ 20:24
+Installing Node.js &amp;amp; NPM Installing Node.js/NPM is easy, no matter what device you are on. You can go here for the easy installation, or if you are on Mac/Linux, you can use your package manager and download it that way. For Windows users, make sure that Node gets installed to your path (this will likely require a reboot). Additionally, you will not want to use the Linux Subsystem for Windows; it&amp;rsquo;ll be much easier to just use command prompt.</description>
+    </item>
+    
+    <item>
+      <title>Publications</title>
+      <link>/publications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/publications/</guid>
+      <description>2019  Towards an Empirically-Based IDE: An Analysis of Code Size and Screen Space Adam C. Short and Austin Z. Henley VL/HCC &amp;lsquo;19: IEEE Symposium on Visual Languages and Human-Centric Computing (Memphis, TN) Short paper. pdf Adaptive IDEs to Support Information Foraging for Novice Programmers Adam C. Short VL/HCC &amp;lsquo;19: IEEE Symposium on Visual Languages and Human-Centric Computing (Memphis, TN) Graduate Consortium. pdf  </description>
+    </item>
+    
+    <item>
+      <title>Teaching</title>
+      <link>/teaching/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/teaching/</guid>
+      <description>I have TA&amp;rsquo;d for the following classes:
+ CS340 - Software Engineering (Fall 2019) CS361 - Operating Systems (Spring 2019) CS102 - Introduction to Computer Science (Fall 2018)  </description>
+    </item>
+    
+  </channel>
+</rss>

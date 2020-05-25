@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/fall19cs530lecture1/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+  </url>
+  
+  <url>
+    <loc>/blog/</loc>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>/notes/</loc>
+  </url>
+  
+  <url>
+    <loc>/teaching/fall18cs102/</loc>
+  </url>
+  
+  <url>
+    <loc>/teaching/fall18cs102/lab1/</loc>
+  </url>
+  
+  <url>
+    <loc>/ssh_guide/</loc>
+  </url>
+  
+  <url>
+    <loc>/teaching/fall19cs340/</loc>
+  </url>
+  
+  <url>
+    <loc>/teaching/spring19cs361/</loc>
+  </url>
+  
+  <url>
+    <loc>/notes/cs530/</loc>
+  </url>
+  
+  <url>
+    <loc>/notes/cs530/lecture5/</loc>
+  </url>
+  
+  <url>
+    <loc>/blog/discord/</loc>
+  </url>
+  
+  <url>
+    <loc>/teaching/fall19cs340/git/</loc>
+  </url>
+  
+  <url>
+    <loc>/guides/</loc>
+  </url>
+  
+  <url>
+    <loc>/guides/</loc>
+  </url>
+  
+  <url>
+    <loc>/guides/guides/intro_to_javascript/</loc>
+  </url>
+  
+  <url>
+    <loc>/teaching/fall19cs340/npm/</loc>
+  </url>
+  
+  <url>
+    <loc>/publications/</loc>
+  </url>
+  
+  <url>
+    <loc>/series/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>/teaching/</loc>
+  </url>
+  
+</urlset>
