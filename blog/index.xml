@@ -13,10 +13,10 @@
     
     <item>
       <title>Fixing how Collision Groups are set in CS:S</title>
-      <link>/blog/blog/fixingcollision/</link>
+      <link>/blog/fixingcollision/</link>
       <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blog/blog/fixingcollision/</guid>
+      <guid>/blog/fixingcollision/</guid>
       <description>Counter-Strike: Source (CS:S) was released November 1, 2004, over 15 years ago. Since its release, it did not take long before people were already pushing the game to its limits with modifications using SourceMod. In pushing the limit, though, mistakes were made and things got a bit messy. One of the biggest issues (at least that I ran into) was the Collision Groups going to hell once you changed the group for an entity (usually a client) known as the &amp;ldquo;Physics Mayhem bug&amp;rdquo;.</description>
     </item>
     
