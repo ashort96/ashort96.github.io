@@ -199,7 +199,8 @@ SetEntityCollisionGroup(client, COLLISION_GROUP_PLAYER);
 <p>Since having transitioned to using this method of changing Collision Groups about a week ago, the &ldquo;Physics Mayhem&rdquo; bug has not happened once which means the server did not have to be restarted around 18 times.
 Turns out, the problem wasn&rsquo;t really due to Valve&rsquo;s code (arguably); it was that instead of trying to properly change the Collision Groups, someone suggested a poor, easy way of doing it that results in over a decade of a single bug ruining gameplay for people who wanted to change Collision Groups somewhat regularly.
 The original solution was marketed as the <strong>only</strong> solution, but here I am 10+ years later showing the <strong>right</strong> solution which took a couple of dedicated hours to find.</p>
-<p>If this bug lives in CS:GO, TF2, or any other games supported by SourceMod, please feel free to submit a PR on the repository and I will accept it pending verification.</p>
+<p>If this bug lives in CS:GO, <del>TF2</del>, or any other games supported by SourceMod, please feel free to submit a PR on the repository and I will accept it pending verification.</p>
+<p>EDIT: Thanks to <a href="https://github.com/Scags">Scags</a> for adding support for TF2.</p>
 <p>Time to figure out how to fix the spray exploit where you can completely crash client games, the voice exploit which causes a buffer overflow, and countless other exploits that are popping up every now and then.</p>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -207,6 +208,7 @@ The original solution was marketed as the <strong>only</strong> solution, but he
 <li><a href="https://bugs.alliedmods.net/show_bug.cgi?id=6348">Allied Modders Bug Report</a></li>
 <li><a href="https://web.archive.org/web/20190406220848/https://forum.facepunch.com/gmoddev/likl/Crazy-Physics-cause-found/1/">Post from facepunch forums describing bug in Garry&rsquo;s Mod</a></li>
 <li><a href="https://github.com/VSES/SourceEngine2007">Source Engine Code from 2007</a></li>
+<li><a href="https://github.com/Scags">Scags</a></li>
 </ul>
 
   </article>
